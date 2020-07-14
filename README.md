@@ -3,6 +3,7 @@
 ![Preview for plugin](./preview.gif)
 
 ## **Installation**
+0. Install powercord and inject it to discord [link to powercord](https://powercord.dev)
 1. Click big green button (you can git clone if you know how 🤷‍♂️)
 2. Download ZIP file 
 3. Extract its contents
