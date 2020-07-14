@@ -1,4 +1,5 @@
 # **Powercord Purge command**
+### note: im not responsible if you get banned from discord
 ### This command lets you delete your messages as if you are a bot (only checks your last 50 messages tho because im not gonna waste time on this. help.)
 ![Preview for plugin](./preview.gif)
 
