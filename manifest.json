@@ -1,0 +1,8 @@
+{
+    "name": "purge",
+    "version": "0.0.1",
+    "description": "Bulk delete messages",
+    "author": "lima",
+    "license": "MIT"
+  }
+  
