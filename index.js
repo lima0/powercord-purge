@@ -19,16 +19,26 @@ module.exports = class purge extends Plugin {
   }
 
   async handleCommand (args) {
-    // command checking and stuff
-    if (args.length < 1) {
-      return {
-        send: false,
-        result:
-          'usage: {c} amount startFrom: messageid'
-      };
+    let messagesToDelete;
+
+    switch (args.length) {
+      case 0:
+        messagesToDelete = 2;
+        break;
+      case 1:
+        messagesToDelete = Number(args[0]) + 1;
+        break;
+      case 2:
+        messagesToDelete = Number(args[0]) + 1;
+        break;
+      default:
+        return {
+          send: false,
+          result:
+            'usage: {c} amount startFrom: messageid'
+        };
     }
 
-    const messagesToDelete = Number(args[0]) + 1;
 
     if (isNaN(messagesToDelete)) {
       return {
@@ -48,7 +58,7 @@ module.exports = class purge extends Plugin {
       return {
         send: false,
         result:
-          'you don\'t have any messages lmao'
+          'you don\'t have any messages lmao send some first'
       };
     }
 
@@ -61,12 +71,13 @@ module.exports = class purge extends Plugin {
 
     // get messageID to start with
     if (args[1]) {
-      if (args[1].length !== 18) {
+      if (args[1].length !== 18 || isNaN(args[1])) {
         return {
           send: false,
           result: 'incorrect messageID'
         };
       }
+
       const startMessage = messageArray.find(m => m.id === args[1]);
 
       if (!startMessage) {
@@ -78,7 +89,7 @@ module.exports = class purge extends Plugin {
       const startMessageIndex = messageArray.findIndex(m => m === startMessage);
 
       console.log(startMessageIndex);
-      messageArray.slice(startMessageIndex + 1);
+      messageArray = messageArray.slice(startMessageIndex + 1);
     }
 
     if (messagesToDelete > messageArray.length + 1 || messagesToDelete <= 0) {
@@ -88,6 +99,7 @@ module.exports = class purge extends Plugin {
           `input number between 1 and ${messageArray.length}`
       };
     }
+
     function yeet () {
       // i went for as low as 350ms, it worked, added an extra 30 because i feel like 350 is too low lol
       return new Promise((res) => {

@@ -12,7 +12,7 @@
 
 ## **Usage**
 ``{prefix}purge 50`` \
- 50 is the amount of messages that will be deleted \
+ 50 is the amount of messages that will be deleted (deletes 1 message if none specified) \
 or
 \
 ``{prefix}purge 10 messageID`` \
