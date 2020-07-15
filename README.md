@@ -8,7 +8,7 @@
 1. Click big green button (you can git clone if you know how 🤷‍♂️)
 2. Download ZIP file 
 3. Extract its contents
-4. Copy it and paste it to your powercord installation in ```src/powercord/src/Powercord/plugins```
+4. Copy it and paste it to your powercord installation in ```powercord/src/Powercord/plugins```
 
 ## **Usage**
 ``{prefix}purge 50`` \
