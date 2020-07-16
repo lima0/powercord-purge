@@ -89,7 +89,13 @@ module.exports = class purge extends Plugin {
       const startMessageIndex = messageArray.findIndex(m => m === startMessage);
 
       console.log(startMessageIndex);
-      messageArray = messageArray.slice(startMessageIndex + 1);
+      messageArray = messageArray.slice(startMessageIndex);
+    }
+    if (!messageArray) {
+      return {
+        send: false,
+        result: 'can\'t find messages before that messageid'
+      };
     }
 
     if (messagesToDelete > messageArray.length + 1 || messagesToDelete <= 0) {
@@ -104,7 +110,13 @@ module.exports = class purge extends Plugin {
       // i went for as low as 350ms, it worked, added an extra 30 because i feel like 350 is too low lol
       return new Promise((res) => {
         setTimeout(async () => {
-          await require('powercord/webpack').messages.deleteMessage(channelid, messageArray[0].id);
+          // eslint-disable-next-line prefer-arrow-callback
+          await require('powercord/webpack').messages.deleteMessage(channelid, messageArray[0].id).catch(function (err) {
+            return {
+              send: false,
+              result: `err: ${err}`
+            };
+          });
           await messageArray.shift();
           res();
         }, 380);
@@ -112,7 +124,14 @@ module.exports = class purge extends Plugin {
     }
 
     for (let i = 0; i < messagesToDelete - 1; i++) {
-      await yeet();
+      try {
+        await yeet();
+      } catch (err) {
+        return {
+          send: false,
+          result: `err: ${err}`
+        };
+      }
     }
 
     return {
