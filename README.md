@@ -16,14 +16,10 @@
 ```
 {prefix}purge 50
 ``` 
-\
  50 is the amount of messages that will be deleted (deletes 1 message if none specified) \
-or
-\
 ```
-{prefix}purge 10 messageID
+{prefix}purge 10 messageid
 ``` 
-\
 this will delete 10 messages starting with the messageid
 
 
