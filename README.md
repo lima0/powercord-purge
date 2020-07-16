@@ -1,6 +1,8 @@
-# **Powercord Purge command**
+# <center> **Powercord Purge command** </center>
 ### note: im not responsible if you get banned from discord
 ### This command lets you delete your messages as if you are a bot (only checks your last 50 messages tho because im not gonna waste time on this. help.)
+
+## Demo
 ![Preview for plugin](./preview.gif)
 
 ## **Installation**
@@ -11,13 +13,19 @@
 4. Copy it and paste it to your powercord installation in ```powercord/src/Powercord/plugins```
 
 ## **Usage**
-``{prefix}purge 50`` \
+```
+{prefix}purge 50
+``` 
+\
  50 is the amount of messages that will be deleted (deletes 1 message if none specified) \
 or
 \
-``{prefix}purge 10 messageID`` \
+```
+{prefix}purge 10 messageID
+``` 
+\
 this will delete 10 messages starting with the messageid
 
 
-## Issues/PRs
+## Contributing
 If you find an issue or want to make a pull request, go ahead, just keep in mind its not a fully finished project (idk if it will ever be either)
