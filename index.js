@@ -26,7 +26,9 @@ module.exports = class purge extends Plugin {
         messagesToDelete = 2;
         break;
       case 1:
+        console.log('\n\n\n ONE ARG');
         messagesToDelete = Number(args[0]) + 1;
+        console.log(messagesToDelete);
         break;
       case 2:
         messagesToDelete = Number(args[0]) + 1;
@@ -111,27 +113,17 @@ module.exports = class purge extends Plugin {
       return new Promise((res) => {
         setTimeout(async () => {
           // eslint-disable-next-line prefer-arrow-callback
-          await require('powercord/webpack').messages.deleteMessage(channelid, messageArray[0].id).catch(function (err) {
-            return {
-              send: false,
-              result: `err: ${err}`
-            };
-          });
+          await require('powercord/webpack').messages.deleteMessage(channelid, messageArray[0].id);
           await messageArray.shift();
           res();
         }, 380);
       });
     }
-
+    console.log(messageArray);
+    console.log(messagesToDelete);
     for (let i = 0; i < messagesToDelete - 1; i++) {
-      try {
-        await yeet();
-      } catch (err) {
-        return {
-          send: false,
-          result: `err: ${err}`
-        };
-      }
+      console.log(i);
+      await yeet();
     }
 
     return {
