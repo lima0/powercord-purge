@@ -26,9 +26,7 @@ module.exports = class purge extends Plugin {
         messagesToDelete = 2;
         break;
       case 1:
-        console.log('\n\n\n ONE ARG');
         messagesToDelete = Number(args[0]) + 1;
-        console.log(messagesToDelete);
         break;
       case 2:
         messagesToDelete = Number(args[0]) + 1;
@@ -90,7 +88,6 @@ module.exports = class purge extends Plugin {
       }
       const startMessageIndex = messageArray.findIndex(m => m === startMessage);
 
-      console.log(startMessageIndex);
       messageArray = messageArray.slice(startMessageIndex);
     }
     if (!messageArray) {
@@ -119,10 +116,9 @@ module.exports = class purge extends Plugin {
         }, 380);
       });
     }
-    console.log(messageArray);
-    console.log(messagesToDelete);
+
+
     for (let i = 0; i < messagesToDelete - 1; i++) {
-      console.log(i);
       await yeet();
     }
 
