@@ -113,7 +113,7 @@ module.exports = class purge extends Plugin {
           await require('powercord/webpack').messages.deleteMessage(channelid, messageArray[0].id);
           await messageArray.shift();
           res();
-        }, 380);
+        }, (Math.floor(Math.random() * 4) + 1) * 1000);
       });
     }
 
